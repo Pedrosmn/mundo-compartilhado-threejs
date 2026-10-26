@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#07110c" />
+    <meta
+      name="description"
+      content="Floresta procedural em 3D com três personagens animados do Sketchfab, construída com Three.js."
+    />
+    <title>Mundo Compartilhado — Floresta 3D</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1a11'/%3E%3Cpath d='M16 5l7 12h-4l5 9H8l5-9H9z' fill='%23b7ef5f'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="canvas-container" aria-hidden="true"></div>
+
+    <header class="brand">
+      <p class="brand__eyebrow"><span class="brand__dot"></span>Three.js · Sketchfab</p>
+      <h1>Mundo Compartilhado</h1>
+      <p class="brand__sub">Uma floresta procedural e três viajantes animados.</p>
+    </header>
+
+    <aside class="panel" id="panel" aria-label="Painel de personagens">
+      <div class="panel__head">
+        <div>
+          <h2>Personagens</h2>
+          <p id="panel-summary">3 membros</p>
+        </div>
+        <button
+          class="icon-button"
+          id="panel-toggle"
+          type="button"
+          aria-expanded="true"
+          aria-controls="panel-body"
+          aria-label="Recolher painel"
+        >
+          <span class="icon-button__chevron" aria-hidden="true">⌄</span>
+        </button>
+      </div>
+
+      <div class="panel__body" id="panel-body">
+        <div class="member-list" id="member-list"></div>
+
+        <div class="panel__footer">
+          <div class="global-controls">
+            <button type="button" class="button button--ghost" id="toggle-play" aria-pressed="false">
+              Pausar animações
+            </button>
+            <button type="button" class="button button--ghost" id="reset-camera">
+              Resetar câmera
+            </button>
+            <button type="button" class="button button--ghost" id="open-credits">
+              Créditos
+            </button>
+          </div>
+          <p class="panel__note">Arraste para orbitar · role para aproximar</p>
+        </div>
+      </div>
+    </aside>
+
+    <p class="hint">Clique em um personagem para destacá-lo</p>
+
+    <div class="loading" id="loading" role="status" aria-live="polite">
+      <div class="loading__inner">
+        <p class="loading__eyebrow">Preparando a clareira</p>
+        <h2 class="loading__title">Mundo Compartilhado</h2>
+        <div class="loading__bar" aria-hidden="true"><span id="loading-fill"></span></div>
+        <div class="loading__row">
+          <span id="loading-percent">0%</span>
+          <span id="loading-status">Carregando modelos…</span>
+        </div>
+      </div>
+    </div>
+
+    <dialog class="credits" id="credits" aria-labelledby="credits-title">
+      <div class="credits__head">
+        <div>
+          <p class="credits__eyebrow">Créditos e licenças</p>
+          <h2 id="credits-title">Modelos do Sketchfab</h2>
+        </div>
+        <button class="icon-button" id="close-credits" type="button" aria-label="Fechar créditos">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+
+      <div class="credits__body" id="credits-body"></div>
+
+      <p class="credits__note">
+        Cena, floresta procedural e interface construídas com
+        <a href="https://threejs.org" target="_blank" rel="noopener noreferrer">Three.js</a>.
+        Os modelos foram redimensionados para 1,75 unidade de altura, o root motion foi
+        removido dos clipes de deslocamento e nenhuma textura foi alterada. No modelo Blake,
+        a geometria da pele foi reescalada para coincidir com o esqueleto e sub-malhas
+        faciais inconsistentes foram removidas.
+      </p>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

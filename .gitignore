@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Decoders copied from three.js by scripts/copy-draco.mjs
+public/draco/
+
+# Logs and OS files
+*.log
+.DS_Store

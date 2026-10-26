@@ -1,0 +1,21 @@
+{
+  "name": "mundo-compartilhado",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cena 3D de floresta procedural com personagens animados do Sketchfab — Three.js",
+  "scripts": {
+    "postinstall": "node scripts/copy-draco.mjs",
+    "predev": "node scripts/copy-draco.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/copy-draco.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5"
+  }
+}
