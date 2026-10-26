@@ -53,6 +53,22 @@ Para conferir o build localmente:
 npm run preview
 ```
 
+## Deploy no GitHub Pages
+
+O projeto já inclui o workflow `.github/workflows/deploy.yml`, que gera o build e
+publica o `dist/` automaticamente a cada push na branch `main`.
+
+1. No GitHub, abra **Settings → Pages**.
+2. Em **Build and deployment → Source**, selecione **GitHub Actions**.
+3. Faça um push na `main` ou execute o workflow manualmente em
+   **Actions → Deploy para o GitHub Pages → Run workflow**.
+4. Acesse `https://<usuario>.github.io/<repositorio>/`.
+
+O `base: './'` faz os caminhos dos assets funcionarem na subpasta do Pages. O
+arquivo `public/.nojekyll` evita que o Jekyll processe o build servido pelo
+Pages. Como os modelos `.glb` somam cerca de 31 MB, o primeiro carregamento pode
+demorar um pouco; depois, o navegador os mantém em cache.
+
 ## Controles
 
 | Ação | Como usar |
@@ -74,6 +90,9 @@ personagens visíveis.
 
 ```
 mundo_compartilhado/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml      # build e publicação no GitHub Pages
 ├── index.html              # marcação do painel, créditos e loading
 ├── vite.config.js          # base relativa e alvo do build
 ├── scripts/
